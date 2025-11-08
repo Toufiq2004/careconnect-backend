@@ -7,13 +7,14 @@ const auth = require('../middleware/auth');
 const router = express.Router();
 
 // Configure web-push
-if (process.env.VAPID_PUBLIC_KEY && process.env.VAPID_PRIVATE_KEY) {
-  webpush.setVapidDetails(
-    'mailto:' + process.env.EMAIL,
-    process.env.VAPID_PUBLIC_KEY,
-    process.env.VAPID_PRIVATE_KEY
-  );
-}
+// Temporarily disabled due to VAPID key validation issue
+// if (process.env.VAPID_PUBLIC_KEY && process.env.VAPID_PRIVATE_KEY) {
+//   webpush.setVapidDetails(
+//     'mailto:' + process.env.EMAIL,
+//     process.env.VAPID_PUBLIC_KEY,
+//     process.env.VAPID_PRIVATE_KEY
+//   );
+// }
 
 // Subscribe to push notifications
 router.post('/subscribe', auth, async (req, res) => {
