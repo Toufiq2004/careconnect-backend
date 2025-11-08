@@ -24,7 +24,7 @@ app.use('/api/notifications', require('./routes/notifications'));
 // Health check
 // in server.js (after app.use(...))
 app.get("/", (_req, res) => {res.send("✅ CareConnect backend is live and working");});
-app.get("/health", (_req, res) => res.json({ ok: true }));
+app.get("/health", (_req, res) => {res.json({ ok: true })});
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
